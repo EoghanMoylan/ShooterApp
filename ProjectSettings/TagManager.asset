@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Player
+  - player
+  - ammo
+  - cliffs
+  - house
+  - ammo
+  - enemy
   - Ammo
   layers:
   - Default

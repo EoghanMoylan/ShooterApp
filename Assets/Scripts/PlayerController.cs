@@ -4,16 +4,35 @@ using System.Collections;
 public class PlayerController : MonoBehaviour 
 {
     public float lerpinLad =0;
-    private float destinationDistance =0;
+    private float destinationDistance = 0;
+    public GameObject federationSpawnPoint;
+    public GameObject allianceSpawnPoint;
     public bool facingRight = true;
     Animator anim;
-    public Vector3 newPosition;
+    Vector3 newPosition;
 
     void Start()
     {
         newPosition = transform.position;
         anim = GetComponent<Animator>();
         Input.simulateMouseWithTouches = true;
+        if (PlayerPrefs.GetInt("isAlliance") == 1)
+        {
+            anim.SetBool("isAlliance", true);
+        }
+        else
+        {
+            anim.SetBool("isAlliance", false);
+        }
+
+        if(anim.GetBool("isAlliance")==true)
+        {
+            transform.position = allianceSpawnPoint.transform.position;
+        }
+        else
+        {
+            transform.position = federationSpawnPoint.transform.position;
+        }
 	}
 
 	void FixedUpdate () 
@@ -28,7 +47,6 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
-
         if (Input.GetMouseButton(0))
         {
             RaycastHit hit;
