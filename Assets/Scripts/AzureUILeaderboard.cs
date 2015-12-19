@@ -92,6 +92,7 @@ public class AzureUILeaderboard : MonoBehaviour
     private int width = 44;
     private int height = 44;
     private int colWidth = 200;
+    private Vector2 scrollPosition;
     private int score;
     private string faction;
 
@@ -118,10 +119,6 @@ public class AzureUILeaderboard : MonoBehaviour
             faction = "Federation";
         }
     }
-
-	// Interface
-
-
 	// Item to insert
 	private Leaderboard _leaderboard = new Leaderboard()
 	{
@@ -137,8 +134,6 @@ public class AzureUILeaderboard : MonoBehaviour
         PlayerName = "Anon",
         PlayerFaction = "Alliance"
 	};
-
-	private Vector2 scrollPosition;
 	
 	public void OnGUI()
     {
@@ -146,7 +141,8 @@ public class AzureUILeaderboard : MonoBehaviour
 		GUILayout.Label("Name");
 		_leaderboard.PlayerName = GUILayout.TextField(_leaderboard.PlayerName);
         GUILayout.Label("Score : " + score);
-
+        _leaderboard.PlayerScore = score;
+        _leaderboard.PlayerFaction = faction;
         if (GUILayout.Button("Submit", GUILayout.MinWidth(width), GUILayout.Height(height)))
         {
             if (_leaderboard.PlayerScore > 0)
@@ -155,8 +151,19 @@ public class AzureUILeaderboard : MonoBehaviour
                 azure.Insert<Leaderboard>(_leaderboard);
             }
         }
-        GUILayout.Label("Leaderboard :");
-        GetAllItems();
+        if (GUILayout.Button("Main Menu", GUILayout.MinWidth(width), GUILayout.Height(height)))
+        {
+            PlayerPrefs.SetInt("Score", 0);
+            PlayerPrefs.SetInt("WaveNumber", 0);
+            Application.LoadLevel("MainMenu");
+        }
+        GUILayout.BeginVertical();
+        if (GUILayout.Button("Show Leaderboard", GUILayout.MinWidth(width), GUILayout.Height(height)))
+        {
+            GetAllItems();
+            GUILayout.Label("Leaderboard :");
+        }
+        scrollPosition = GUILayout.BeginScrollView(scrollPosition, false, true, GUILayout.Height(300));
         foreach (var item in _leaderboardItems)
         {
             GUILayout.BeginHorizontal();
@@ -165,6 +172,8 @@ public class AzureUILeaderboard : MonoBehaviour
             GUILayout.Label(item.PlayerFaction);
             GUILayout.EndHorizontal();
         }
+        GUILayout.EndScrollView();
+        GUILayout.EndVertical();
     }
 
 	public void GetAllItems()

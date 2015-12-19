@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject federationSpawnPoint;
     public GameObject allianceSpawnPoint;
     public bool facingRight = true;
+    private int health = 1;
     Animator anim;
     Vector3 newPosition;
 
@@ -38,6 +39,10 @@ public class PlayerController : MonoBehaviour
 	void FixedUpdate () 
     {
         destinationDistance = (transform.position.x - newPosition.x);
+        if(health == 0)
+        {
+            StartCoroutine(Die());
+        }
 
         if (destinationDistance > 0 && !facingRight)
         {
@@ -72,5 +77,19 @@ public class PlayerController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "enemy")
+        {
+            health--;
+        }
+    }
+    IEnumerator Die()
+    {
+        //Saves the current score and level to be used in the "death scene"
+        yield return new WaitForSeconds(2);
+        // Restart the level when the music is finished.
+        Application.LoadLevel("GameOver");
     }
 }

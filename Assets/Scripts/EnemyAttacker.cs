@@ -11,10 +11,11 @@ public class EnemyAttacker : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update ()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, 5 * Time.deltaTime);
-
-        Debug.Log(transform.position);
+        var dir = target.transform.position - transform.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, 40 * Time.deltaTime);
 	}
 }

@@ -8,11 +8,6 @@ public class Shoot : MonoBehaviour {
    // private Vector3 newPosition;
     private Vector2 myPos;
 
-	// Use this for initialization
-	void Start () 
-    {
-	}
-	
 	// Update is called once per frame
 	void Update () 
     {
