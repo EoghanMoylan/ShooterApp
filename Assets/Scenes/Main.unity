@@ -940,7 +940,7 @@ GameObject:
   - 114: {fileID: 490292128}
   m_Layer: 0
   m_Name: Alliance Heavy Troops_0
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -995,8 +995,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 490292122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 132.699997, y: 256, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalPosition: {x: 160.600006, y: 248.5, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 2120350608}
   m_Father: {fileID: 0}

@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
             {
                 anim.SetBool("isMoving", true);
                 newPosition = hit.point;
-                transform.position =  Vector3.MoveTowards(transform.position, newPosition,Mathf.Abs((lerpinLad*destinationDistance)/100));
+                transform.position =  Vector3.MoveTowards(transform.position, newPosition,Mathf.Abs((lerpinLad*destinationDistance)/50));
                 Vector3 pos = transform.position;
                 pos.z = 0;
                 transform.position = pos;
