@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Die()
     {
         //Saves the current score and level to be used in the "death scene"
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(.05f);
         // Restart the level when the music is finished.
         Application.LoadLevel("GameOver");
     }

@@ -7,6 +7,8 @@ public class Clickable : MonoBehaviour
 
     void Update()
     {
+        PlayerPrefs.SetInt("Score", 0);
+        PlayerPrefs.SetInt("WaveNumber", 0);
 
         if(Input.GetMouseButtonDown(0))
         {

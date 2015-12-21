@@ -7,6 +7,12 @@ public class Shoot : MonoBehaviour {
     public float bulletLife;
    // private Vector3 newPosition;
     private Vector2 myPos;
+    public AudioClip gunSound;
+    private AudioSource shot;
+    void Start()
+    {
+        shot = gameObject.GetComponent<AudioSource>();
+    }
 
 	// Update is called once per frame
 	void Update () 
@@ -20,6 +26,7 @@ public class Shoot : MonoBehaviour {
 	}
     void shoot()
     {
+        shot.PlayOneShot(gunSound);
         Vector2 cursorInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = cursorInWorldPos - myPos;
         direction.Normalize();
