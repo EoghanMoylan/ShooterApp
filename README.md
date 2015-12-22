@@ -4,6 +4,7 @@
  
  **How to run**
  In order to get the project to run, you must include the JSON.net plugin available for unity.
+ THe "Show Leaderboard" button on the game over screen may take a few seconds to populate the labels with data from the azure backend.
  
  **Refrences**
  https://github.com/bitrave/azure-mobile-services-for-unity3d
