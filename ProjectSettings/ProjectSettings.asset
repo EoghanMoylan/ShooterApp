@@ -423,7 +423,7 @@ PlayerSettings:
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 
-  metroCompilationOverrides: 1
+  metroCompilationOverrides: 2
   blackberryDeviceAddress: 
   blackberryDevicePassword: 
   blackberryTokenPath: 
