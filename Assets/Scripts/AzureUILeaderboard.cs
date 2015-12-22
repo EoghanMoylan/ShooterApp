@@ -96,11 +96,11 @@ public class AzureUILeaderboard : MonoBehaviour
     private int score;
     private string faction;
 
-	[SerializeField]
-    public string AzureEndPoint = "https://federationvsalliance.azure-mobile.net/"; // Your Connection URL
+    [SerializeField]
+    public string AzureEndPoint = ""; // Your Connection URL
 	
 	[SerializeField]
-    public string ApplicationKey = "LHNqFFmdDGXluZIbBGLBkCQJSDfQYk12"; // Your API Key
+    public string ApplicationKey = ""; // Your API Key
 
 	// Table items
 	public List<Leaderboard> _leaderboardItems = new List<Leaderboard>();
